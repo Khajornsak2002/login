@@ -58,11 +58,27 @@
             background-color: #45a049;
         }
     </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // หยุดการส่งแบบฟอร์ม
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // ตรวจสอบชื่อผู้ใช้และรหัสผ่าน
+            if (username === 'admin' && password === 'admin') {
+                // เปลี่ยนเส้นทางไปที่ YouTube
+                window.location.href = 'https://www.youtube.com';
+            } else {
+                alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="login" method="POST">
+        <form onsubmit="handleLogin(event)">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
